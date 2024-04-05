@@ -1,11 +1,24 @@
-import { useState } from 'react'
+import { useState,useEffect,useRef } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  //const a=useRef(0);
+  const btnRef=useRef(0);
+  //A use-case of useRef hook
+  /*
+  useEffect(() => {
+    a.current=a.current+1;
+    console.log(`Re-rendering value of ${a.current}..`);
+  })
+  */
+ useEffect(() => {
+   console.log("First rendering...")
+   btnRef.current.style.backgroundColor='red'
+ }, [])
+ 
   return (
     <>
       <div>
@@ -18,7 +31,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button ref={btnRef} onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
