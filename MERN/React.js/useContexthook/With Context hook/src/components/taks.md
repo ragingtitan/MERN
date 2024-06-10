@@ -1,0 +1,1 @@
+Makes setCount available in nested components too.
